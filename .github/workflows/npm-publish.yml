@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    artifacts:
+      untracked: true
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -19,6 +21,7 @@ jobs:
 
   publish-npm:
     needs: build
+    dependencies: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
