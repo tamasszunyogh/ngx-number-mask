@@ -10,8 +10,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    artifacts:
-      untracked: true
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -21,7 +19,6 @@ jobs:
 
   publish-npm:
     needs: build
-    dependencies: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -31,7 +28,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: ls -la
       - run: npm ci
-      - run: ls -la
+      - run: npm run build
       - run: cd ./dist/ngx-number-mask
       - run: npm publish
         env:
