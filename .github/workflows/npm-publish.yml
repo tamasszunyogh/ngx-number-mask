@@ -26,10 +26,11 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: ls -la
       - run: npm ci
       - run: npm run build
       - run: cd dist/ngx-number-mask
+      - run: ls -la
+      - run: npm pack
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
