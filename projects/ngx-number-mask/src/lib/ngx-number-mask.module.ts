@@ -12,12 +12,12 @@ import { NgxNumberMaskDirective } from 'projects/ngx-number-mask/src/lib/ngx-num
   declarations: [NgxNumberMaskDirective],
   exports: [NgxNumberMaskDirective],
 })
-export class NgxNumberModule {
+export class NumberMaskModule {
   static forRoot(
     config: NgxNumberMaskConfig
-  ): ModuleWithProviders<NgxNumberModule> {
+  ): ModuleWithProviders<NumberMaskModule> {
     return {
-      ngModule: NgxNumberModule,
+      ngModule: NumberMaskModule,
       providers: [
         {
           provide: NUMBER_MASK_CONFIG,
