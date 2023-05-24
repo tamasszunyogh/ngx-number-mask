@@ -59,9 +59,7 @@ export class NgxNumberMaskDirective
   };
 
   constructor(
-    @Optional()
-    @Inject(NUMBER_MASK_CONFIG)
-    private numberMaskConfig: NgxNumberMaskConfig,
+    @Optional() @Inject(NUMBER_MASK_CONFIG) private numberMaskConfig: NgxNumberMaskConfig,
     private elementRef: ElementRef,
     private keyValueDiffers: KeyValueDiffers
   ) {

@@ -2,8 +2,8 @@
   "name": "ngx-number-mask",
   "version": "0.0.14",
   "peerDependencies": {
-    "@angular/common": ">= 12.x.x",
-    "@angular/core": ">= 12.x.x"
+    "@angular/common": ">= 13.x.x",
+    "@angular/core": ">= 13.x.x"
   },
   "dependencies": {
     "tslib": ">= 2.3.0"
