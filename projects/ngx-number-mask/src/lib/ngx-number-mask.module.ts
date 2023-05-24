@@ -4,20 +4,20 @@ import { FormsModule } from '@angular/forms';
 import {
   NUMBER_MASK_CONFIG,
   NgxNumberMaskConfig,
-} from 'projects/ngx-number-mask/src/lib/ngx-number-mask.config';
-import { NgxNumberMaskDirective } from 'projects/ngx-number-mask/src/lib/ngx-number-mask.directive';
+} from './ngx-number-mask.config';
+import { NgxNumberMaskDirective } from './ngx-number-mask.directive';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
   declarations: [NgxNumberMaskDirective],
   exports: [NgxNumberMaskDirective],
 })
-export class NumberMaskModule {
+export class NgxNumberMaskModule {
   static forRoot(
     config: NgxNumberMaskConfig
-  ): ModuleWithProviders<NumberMaskModule> {
+  ): ModuleWithProviders<NgxNumberMaskModule> {
     return {
-      ngModule: NumberMaskModule,
+      ngModule: NgxNumberMaskModule,
       providers: [
         {
           provide: NUMBER_MASK_CONFIG,

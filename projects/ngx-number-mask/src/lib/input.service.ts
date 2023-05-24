@@ -1,7 +1,7 @@
 import {
   NumberMaskInputMode,
   NgxNumberMaskConfig,
-} from 'projects/ngx-number-mask/src/lib/ngx-number-mask.config';
+} from './ngx-number-mask.config';
 import { InputManager } from './input.manager';
 
 export class InputService {

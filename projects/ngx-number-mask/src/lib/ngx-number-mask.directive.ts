@@ -23,7 +23,7 @@ import {
   NumberMaskInputMode,
   NUMBER_MASK_CONFIG,
   NgxNumberMaskConfig,
-} from 'projects/ngx-number-mask/src/lib/ngx-number-mask.config';
+} from './ngx-number-mask.config';
 import { InputHandler } from './input.handler';
 
 export const NUMBERMASKDIRECTIVE_VALUE_ACCESSOR: any = {
