@@ -1,27 +1,103 @@
-# NgxNumberMask
+# ng2-number-mask
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+This is a fork of https://github.com/cesarrew/ng2-currency-mask/
+A very simple number mask directive for Angular that allows using a number attribute with the ngModel. In other words, the model is a number, and not a string with a mask. It was tested in Angular version 15.
 
-## Development server
+## Example App
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+TODO
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Installing and Importing
 
-## Build
+Install the package by command:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```sh
+    npm install ng2-number-mask --save
+```
 
-## Running unit tests
+Import the module
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```ts
+import { NgxNumberMaskModule } from 'ngx-number-mask';
 
-## Running end-to-end tests
+@NgModule({
+    imports: [
+        ...
+        NgxNumberMaskModule
+    ],
+    declarations: [...],
+    providers: [...]
+})
+export class AppModule {}
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Using
 
-## Further help
+```html
+<input numberMask [(ngModel)]="value" />
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+-   `ngModel` An attribute of type number. If is displayed `'$ 25.63'`, the attribute will be `'25.63'`.
+
+### Options
+
+You can set options as follows:
+
+```html
+<!-- example for pt-BR money -->
+<input numberMask [(ngModel)]="value" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+```
+
+Available options:
+
+-   `align` - Text alignment in input. (default: `right`)
+-   `allowNegative` - If `true` can input negative values. (default: `false`)
+-   `decimal` - Separator of decimals (default: `'.'`)
+-   `decimalReplace` - Recognize this as decimal separator, but replace it with `decimal` decimals (default: `','`)
+-   `thousands` - Separator of thousands (default: `' '`)
+-   `precision` - Number of decimal places (default: `2`)
+-   `prefix` - Money prefix (default: `''`)
+-   `suffix` - Money suffix (default: `''`)
+-   `nullable` - null value if empty (default: `'true'`)
+
+You can also set options globally...
+
+```ts
+import { NgxNumberMaskConfig, NgxNumberMaskModule, NUMBER_MASK_CONFIG } from 'ng2-number-mask';
+
+export const CustomCurrencyMaskConfig: NgxNumberMaskConfig = {
+    align: 'right',
+    allowNegative: false,
+    allowZero: true,
+    decimal: '.',
+    decimalReplace: ',',
+    precision: 2,
+    prefix: '',
+    suffix: '',
+    thousands: ' ',
+    nullable: true,
+};
+
+@NgModule({
+    imports: [
+        ...
+        NgxNumberMaskModule
+    ],
+    declarations: [...],
+    providers: [
+        { provide: NUMBER_MASK_CONFIG, useValue: NgxNumberMaskConfig }
+    ],
+    bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+### Validation
+
+This directive also provides built-in validation for minimum and maximum values. If the attributes 'min' and / or 'max' are set, the Angular CSS class 'ng-invalid' will be added to the input to indicate an invalid value.
+
+```html
+<input currencyMask [(ngModel)]="value" min="-10.50" max="100.75" />
+```
