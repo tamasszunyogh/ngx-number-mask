@@ -11,6 +11,7 @@ export interface NgxNumberMaskConfig {
   suffix: string;
   thousands: string;
   nullable: boolean;
+  selectOnFocus?: boolean;
   min?: number;
   max?: number;
   startFromEnd?: boolean;

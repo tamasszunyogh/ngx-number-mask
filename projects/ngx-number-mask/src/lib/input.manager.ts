@@ -27,6 +27,10 @@ export class InputManager {
     this.setCursorAt(selectionStart);
   }
 
+  select(): void {
+    this.htmlInputElement.select();
+  }
+
   get canInputMoreNumbers(): boolean {
     const onlyNumbers = this.rawValue.replace(
       /[^0-9\u0660-\u0669\u06F0-\u06F9]/g,

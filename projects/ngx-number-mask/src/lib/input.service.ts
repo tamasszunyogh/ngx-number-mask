@@ -404,6 +404,10 @@ export class InputService {
     );
   }
 
+  select(): void {
+    this.inputManager.select();
+  }
+
   updateOptions(options: any): void {
     const value: number = this.value;
     this.options = options;

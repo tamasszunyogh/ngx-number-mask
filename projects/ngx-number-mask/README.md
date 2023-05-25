@@ -1,4 +1,4 @@
-# ng2-number-mask
+# ngx-number-mask
 
 A very simple number mask directive for Angular that allows using a number attribute with the ngModel. In other words, the model is a number, and not a string with a mask. It was tested in Angular version 15.
 This is a fork of https://github.com/cesarrew/ng2-currency-mask/
@@ -14,7 +14,7 @@ TODO
 Install the package by command:
 
 ```sh
-    npm install ng2-number-mask --save
+    npm install ngx-number-mask --save
 ```
 
 Import the module
@@ -61,11 +61,12 @@ Available options:
 -   `prefix` - Money prefix (default: `''`)
 -   `suffix` - Money suffix (default: `''`)
 -   `nullable` - null value if empty (default: `'true'`)
+-   `selectOnFocus` - select all value on focus (default: `'false'`)
 
 You can also set options globally...
 
 ```ts
-import { NgxNumberMaskConfig, NgxNumberMaskModule, NUMBER_MASK_CONFIG } from 'ng2-number-mask';
+import { NgxNumberMaskConfig, NgxNumberMaskModule, NUMBER_MASK_CONFIG } from 'ngx-number-mask';
 
 export const CustomNumberMaskConfig: NgxNumberMaskConfig = {
     align: 'right',
@@ -78,6 +79,7 @@ export const CustomNumberMaskConfig: NgxNumberMaskConfig = {
     suffix: '',
     thousands: ' ',
     nullable: true,
+    selectOnFocus: false,
 };
 
 @NgModule({

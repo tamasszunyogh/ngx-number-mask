@@ -1,17 +1,21 @@
 import { InputService } from './input.service';
+import { NgxNumberMaskConfig } from './ngx-number-mask.config';
 
 export class InputHandler {
   private inputService: InputService;
   private onModelChange: (value: any) => void;
   private onModelTouched: (value: any) => void;
 
-  constructor(private htmlInputElement: HTMLInputElement, private options: any) {
+  constructor(private htmlInputElement: HTMLInputElement, private options: NgxNumberMaskConfig) {
     this.inputService = new InputService(htmlInputElement, options);
   }
 
   handleFocus() {
     if (this.options.startFromEnd) {
       setTimeout(() => this.inputService.inputManager.setCursorAt(this.htmlInputElement.value.length), 0);
+    }
+    if (this.options.selectOnFocus) {
+      setTimeout(() => this.inputService.inputManager.select(), 0);
     }
   }
 
