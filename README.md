@@ -1,7 +1,7 @@
 # ng2-number-mask
 
-This is a fork of https://github.com/cesarrew/ng2-currency-mask/
 A very simple number mask directive for Angular that allows using a number attribute with the ngModel. In other words, the model is a number, and not a string with a mask. It was tested in Angular version 15.
+This is a fork of https://github.com/cesarrew/ng2-currency-mask/
 
 ## Example App
 
@@ -67,7 +67,7 @@ You can also set options globally...
 ```ts
 import { NgxNumberMaskConfig, NgxNumberMaskModule, NUMBER_MASK_CONFIG } from 'ng2-number-mask';
 
-export const CustomCurrencyMaskConfig: NgxNumberMaskConfig = {
+export const CustomNumberMaskConfig: NgxNumberMaskConfig = {
     align: 'right',
     allowNegative: false,
     allowZero: true,
@@ -99,5 +99,5 @@ export class AppModule {}
 This directive also provides built-in validation for minimum and maximum values. If the attributes 'min' and / or 'max' are set, the Angular CSS class 'ng-invalid' will be added to the input to indicate an invalid value.
 
 ```html
-<input currencyMask [(ngModel)]="value" min="-10.50" max="100.75" />
+<input numberMask [(ngModel)]="value" min="-10.50" max="100.75" />
 ```
