@@ -27,6 +27,8 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - run: git config --global user.email "szunyogh.tamas@gmail.com"
+      - run: git config --global user.name "Tamas Szunyogh"
       - run: npm version $(git describe --tags --abbrev=0) --force
       - run: cd projects/ngx-number-mask && npm version $(git describe --tags --abbrev=0) --force
       - run: git push --follow-tags
