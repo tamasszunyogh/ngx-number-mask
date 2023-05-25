@@ -27,6 +27,10 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - run: npm version patch --force
+      - run: cd projects/ngx-number-mask && npm version patch --force
+      - run: git tag v$(npm view . version)
+      - run: git push origin v$(npm view . version)
       - run: npm run build
       - run: npm publish dist/ngx-number-mask/
         env:
